@@ -1,0 +1,65 @@
+version: "3.1"
+
+intents:
+  - greet
+  - positive_change_song
+  - positive_feedback
+  - stick_to_artist
+  - unwanted_music
+  - music_specification_genre
+  - music_specification_artist
+
+
+entities:
+  - genre
+  - artist_name
+
+slots:
+  genre:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: genre
+  artist_name:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: artist_name
+
+
+
+
+responses:
+  utter_greet:
+    - text: "Hey! How are you?"
+
+  utter_goodbye:
+    - text: "Goodbye! Have a great day."
+
+  utter_greet_back_question:
+    - text: "Hello! Ready to kick off your day with some tunes. What's your musical mood today?"
+
+  utter_iamabot:
+    - text: "I am a Rasa-powered chatbot. How can I assist you today?"
+
+  utter_acknowledge_style:
+    - text: "I'm glad you liked it! {artist_name} has a few more tracks in their latest album. Would you like to continue with them, or do you want to explore a different artist?"
+
+  utter_keep_the_band:
+    - text: "Keeping the {artist_name} going! Let’s go to the next"
+
+  utter_ask_for_different_artist:
+    - text: "I’m sorry. Do you want to explore a different artist?"
+
+  utter_playing_artist:
+    - text: "Okay so... lets go with {artist_name}"
+
+
+actions:
+  - action_recommend_music
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

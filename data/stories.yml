@@ -1,0 +1,43 @@
+version: "3.1"
+
+stories:
+
+- story: 1st happy path
+  steps:
+  - intent: greet
+  - action: utter_greet_back_question
+  - intent: music_specification_genre
+  - action: action_recommend_music
+  - slot_was_set:
+    - genre: "rock"
+    - artist_name: "Radiohead"
+  - intent: positive_change_song
+  - action: utter_acknowledge_style
+  - intent: stick_to_artist
+  - action: utter_keep_the_band
+
+- story: 2nd happy path
+  steps:
+  - intent: greet
+  - action: utter_greet_back_question
+  - intent: music_specification_artist
+  - action: utter_playing_artist
+  - intent: positive_change_song
+  - action: utter_acknowledge_style
+  - intent: positive_feedback
+
+- story: 3rd sad path
+  steps:
+  - intent: greet
+  - action: utter_greet_back_question
+  - intent: music_specification_genre
+  - action: action_recommend_music
+  - slot_was_set:
+    - genre: "rock"
+    - artist_name: "Radiohead"
+  - intent: positive_change_song
+  - action: utter_acknowledge_style
+  - intent: stick_to_artist
+  - action: utter_keep_the_band
+  - intent: unwanted_music
+  - action: utter_ask_for_different_artist
