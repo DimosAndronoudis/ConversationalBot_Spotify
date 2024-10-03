@@ -1,105 +1,88 @@
 version: "3.1"
-
 nlu:
-- intent: greet
+- intent: create_playlist
   examples: |
-    - hey
-    - hello
-    - hi
-    - hello there
-    - good morning
-    - good evening
-    - moin
-    - hey there
-    - let's go
-    - hey dude
-    - goodmorning
-    - goodevening
-    - good afternoon
-    
-
-- intent: music_specification_artist
-  examples: |
-    - Play some [James Brown]{"entity": "artist_name"} music to start my day
-    - I want to listen to [Led Zeppelin]{"entity": "artist_name"}
-    - Play some music by [Chic]{"entity": "artist_name"} 
-    - Play a [Michael Jackson]{"entity": "artist_name"} track
-    - I'd like to hear some [Taylor Swift]{"entity": "artist_name"} songs
-    - I feel like listening to some [Madonna]{"entity": "artist_name"} right now
-    - I'm in the mood for [Queen]{"entity": "artist_name"}
-    - Play [Parliament-Funkadelic]{"entity": "artist_name"} 
-    - Play [The Rolling Stones]{"entity": "artist_name"} 
-    - Play [Bruno Mars]{"entity": "artist_name"}
-
-
-- intent: music_specification_genre
-  examples: |
-    - Play some [indie]{"entity": "genre"} music to start my day
-    - I want to listen to [rock]{"entity": "genre"} tunes
-    - Play some music in the [funk]{"entity": "genre"}  genre
-    - Play [pop]{"entity": "genre"}  tracks
-    - I'd like to hear some [country]{"entity": "genre"}  songs
-    - I feel like listening to some [hip hop]{"entity": "genre"}  right now
-    - I'm in the mood for [electronic]{"entity": "genre"}  music
-    - Play [funk]{"entity": "genre"} 
-    - Play [rock]{"entity": "genre"} 
-    - Play [indie]{"entity": "genre"}
-
-- intent: positive_change_song
-  examples: |
-    - Do you have more music in this style?
-    - Can you give me the same style of music?
-    - I really liked that, give me more
-    - Suggest me with more songs like that
-    - I like it
-    - Wow, do you have more like that?
-    - That's perfect give me more
-
-- intent: positive_feedback
-  examples: |
-    - Fantastic track!
-    - Loved the vibes of that track!
-    - That track was amazing!
-    - Great choice, Music Bot
-    - That track was perfect!
-    - Such a cool track!
-    - That track was fantastic
-    - Really enjoyed that track!
-    - Awesome choice, Music Bot
-    - Wonderful choice!
-
-
-
-
-
-- intent: stick_to_artist
-  examples: |
-    - Let's stick with [Radiohead](artist_name) for now. What's the next track?
-    - How about we continue with [Arctic Monkeys](artist_name) for a bit? 
-    - I'm enjoying [Florence + the Machine](artist_name). Let's continue with them. 
-    - Keep the vibe going with [Daft Punk](artist_name). What's their next track?
-    - I'm in the mood for more from [Billie Eilish](artist_name). 
-    - Let's not stray too far from [The Beatles](artist_name) for now. What's their next track?
-    - I'm really into [Coldplay] (artist_name)right now. Keep going
-    - Stick with [Ed Sheeran](artist_name) for a bit. Keep going
-    - I'm loving the sound of [Lorde](artist_name). Play more of this
-    - Continue the groove with [Bruno Mars](artist_name)
-
-
-
-- intent: unwanted_music
-  examples: |
-    - Why opt for such a track? It's quite a departure from the previous one
-    - I'm not a fan of this song, can we switch it up, please?
-    - This song seems unrelated to the previous one; can we try something else?
-    - What led to the choice of this track? It feels disconnected from the last one
-    - I'm not vibing with this song; could you change it for me?
-    - It feels like this song doesn't quite match the mood set by the previous one
-    - I'm not enjoying this track
-    - Why the shift to this song? It doesn't seem to flow from the previous track
-    - I'm not feeling the connection between this song and the one before it
-    - Can we pick a different track? This one doesn't follow the vibe of the previous song
-    - Can we find something more in line with the last one?
-    - I don’t like this song, change it please
-    - It has nothing to do with the previous song
-
+    - Create a playlist using [https://open.spotify.com/playlist/2y4p9S7W4tXJAzu35relGA](playlist_link) with note [C#](note_name), tempo [142](tempo) BPM and time signature [4](time_signature)
+    - I want a playlist with note [A](note_name) and tempo [120](tempo)
+    - Make me a playlist from [https://open.spotify.com/playlist/5h95V416YIe8UAFtxq4ffI?si=90d42b5081ed4562](playlist_link) with [G](note_name) in [4](time_signature) time
+    - create a playlist using [https://open.spotify.com/playlist/5h95V416YIe8UAFtxq4ffI?si=91357c98548740e6](playlist_link) with not [C](note_name), tempo [140](tempo) BPM and time signature [4](time_signature)
+    - give me a playlist using [https://open.spotify.com/playlist/5qTtoLQjDUzewb5A9U48Zs?si=mHfxld8yQBm4bgBIAFFS4g](playlist_link) with note [C](note_name), tempo [144](time_signature) bpm and time signature [4](time_signature)
+#- intent: greet
+#  examples: |
+#    - let's go
+#    - hey dude
+#    - goodmorning
+#    - goodevening
+#    - good afternoon
+#- intent: music_specification_artist
+#  examples: |
+#    - Play some [James Brown](artist_name) music to start my day
+#    - I want to listen to [Led Zeppelin](artist_name)
+#    - Play some music by [Chic](artist_name)
+#    - Play a [Michael Jackson](artist_name) track
+#    - I'd like to hear some [Taylor Swift](artist_name) songs
+#    - I feel like listening to some [Madonna](artist_name) right now
+#    - I'm in the mood for [Queen](artist_name)
+#    - Play [Parliament-Funkadelic](artist_name)
+#    - Play [The Rolling Stones](artist_name)
+#    - Play [Bruno Mars](artist_name)
+#- intent: music_specification_genre
+#  examples: |
+#    - Play some [indie](genre) music to start my day
+#    - I want to listen to [rock](genre) tunes
+#    - Play some music in the [funk](genre)  genre
+#    - Play [pop](genre)  tracks
+#    - I'd like to hear some [country](genre)  songs
+#    - I feel like listening to some [hip hop](genre)  right now
+#    - I'm in the mood for [electronic](genre)  music
+#    - Play [funk](genre)
+#    - Play [rock](genre)
+#    - Play [indie](genre)
+#- intent: positive_change_song
+#  examples: |
+#    - Do you have more music in this style?
+#    - Can you give me the same style of music?
+#    - I really liked that, give me more
+#    - Suggest me with more songs like that
+#    - I like it
+#    - Wow, do you have more like that?
+#    - That's perfect give me more
+#- intent: positive_feedback
+#  examples: |
+#    - Fantastic track!
+#    - Loved the vibes of that track!
+#    - That track was amazing!
+#    - Great choice, Music Bot
+#    - That track was perfect!
+#    - Such a cool track!
+#    - That track was fantastic
+#    - Really enjoyed that track!
+#    - Awesome choice, Music Bot
+#    - Wonderful choice!
+#- intent: stick_to_artist
+#  examples: |
+#    - Let's stick with [Radiohead](artist_name) for now. What's the next track?
+#    - How about we continue with [Arctic Monkeys](artist_name) for a bit?
+#    - I'm enjoying [Florence + the Machine](artist_name). Let's continue with them.
+#    - Keep the vibe going with [Daft Punk](artist_name). What's their next track?
+#    - I'm in the mood for more from [Billie Eilish](artist_name).
+#    - Let's not stray too far from [The Beatles](artist_name) for now. What's their next track?
+#    - I'm really into [Coldplay] (artist_name)right now. Keep going
+#    - Stick with [Ed Sheeran](artist_name) for a bit. Keep going
+#    - I'm loving the sound of [Lorde](artist_name). Play more of this
+#    - Continue the groove with [Bruno Mars](artist_name)
+#- intent: unwanted_music
+#  examples: |
+#    - Why opt for such a track? It's quite a departure from the previous one
+#    - I'm not a fan of this song, can we switch it up, please?
+#    - This song seems unrelated to the previous one; can we try something else?
+#    - What led to the choice of this track? It feels disconnected from the last one
+#    - I'm not vibing with this song; could you change it for me?
+#    - It feels like this song doesn't quite match the mood set by the previous one
+#    - I'm not enjoying this track
+#    - Why the shift to this song? It doesn't seem to flow from the previous track
+#    - I'm not feeling the connection between this song and the one before it
+#    - Can we pick a different track? This one doesn't follow the vibe of the previous song
+#    - Can we find something more in line with the last one?
+#    - I don’t like this song, change it please
+#    - It has nothing to do with the previous song

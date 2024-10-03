@@ -1,0 +1,39 @@
+{
+  "lookup": {
+    "rules": {
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"bot_challenge\"}}]": "utter_iamabot",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"bot_challenge\"}}, {\"prev_action\": {\"action_name\": \"utter_iamabot\"}, \"user\": {\"intent\": \"bot_challenge\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"music_specification_genre\"}}]": "action_recommend_music",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"music_specification_genre\"}}, {\"prev_action\": {\"action_name\": \"action_recommend_music\"}, \"user\": {\"intent\": \"music_specification_genre\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"goodbye\"}}]": "utter_goodbye",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"goodbye\"}}, {\"prev_action\": {\"action_name\": \"utter_goodbye\"}, \"user\": {\"intent\": \"goodbye\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_create_spotify_playlist\"}}]": "action_check_user_response",
+      "[{\"prev_action\": {\"action_name\": \"action_create_spotify_playlist\"}}, {\"prev_action\": {\"action_name\": \"action_check_user_response\"}}]": "action_listen",
+      "[{\"active_loop\": {\"name\": \"action_check_user_response\"}, \"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"deny\"}}]": "utter_ok_have_fun_listening",
+      "[{\"active_loop\": {\"name\": \"action_check_user_response\"}, \"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"deny\"}}, {\"active_loop\": {\"name\": \"action_check_user_response\"}, \"prev_action\": {\"action_name\": \"utter_ok_have_fun_listening\"}, \"user\": {\"intent\": \"deny\"}}]": "action_listen",
+      "[{\"active_loop\": {\"name\": \"action_check_user_response\"}, \"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"affirm\"}}]": "action_create_spotify_playlist",
+      "[{\"active_loop\": {\"name\": \"action_check_user_response\"}, \"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"affirm\"}}, {\"active_loop\": {\"name\": \"action_check_user_response\"}, \"prev_action\": {\"action_name\": \"action_create_spotify_playlist\"}, \"user\": {\"intent\": \"affirm\"}}]": "action_listen"
+    },
+    "rule_only_slots": [],
+    "rule_only_loops": [
+      "action_check_user_response"
+    ],
+    "rules_for_loop_unhappy_path": {
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}}, {\"active_loop\": {\"name\": \"action_check_user_response\"}, \"prev_action\": {\"action_name\": \"utter_ok_have_fun_listening\"}, \"user\": {\"intent\": \"deny\"}}]": "do_not_predict_loop_action",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}}, {\"active_loop\": {\"name\": \"action_check_user_response\"}, \"prev_action\": {\"action_name\": \"action_create_spotify_playlist\"}, \"user\": {\"intent\": \"affirm\"}}]": "do_not_predict_loop_action"
+    },
+    "rules_not_in_stories": [
+      "predicting default action with intent session_start",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"bot_challenge\"}}, {\"prev_action\": {\"action_name\": \"utter_iamabot\"}, \"user\": {\"intent\": \"bot_challenge\"}}]",
+      "predicting default action with intent restart",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"bot_challenge\"}}]",
+      "[{\"active_loop\": {\"name\": \"action_check_user_response\"}, \"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"deny\"}}]",
+      "[{\"active_loop\": {\"name\": \"action_check_user_response\"}, \"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"affirm\"}}]",
+      "[{\"active_loop\": {\"name\": \"action_check_user_response\"}, \"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"affirm\"}}, {\"active_loop\": {\"name\": \"action_check_user_response\"}, \"prev_action\": {\"action_name\": \"action_create_spotify_playlist\"}, \"user\": {\"intent\": \"affirm\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"goodbye\"}}]",
+      "[{\"active_loop\": {\"name\": \"action_check_user_response\"}, \"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"deny\"}}, {\"active_loop\": {\"name\": \"action_check_user_response\"}, \"prev_action\": {\"action_name\": \"utter_ok_have_fun_listening\"}, \"user\": {\"intent\": \"deny\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"goodbye\"}}, {\"prev_action\": {\"action_name\": \"utter_goodbye\"}, \"user\": {\"intent\": \"goodbye\"}}]",
+      "predicting default action with intent back"
+    ]
+  }
+}

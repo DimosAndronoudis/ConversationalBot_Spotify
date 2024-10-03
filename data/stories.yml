@@ -2,42 +2,85 @@ version: "3.1"
 
 stories:
 
-- story: 1st happy path
+- story: create_playlist_story
   steps:
-  - intent: greet
-  - action: utter_greet_back_question
-  - intent: music_specification_genre
-  - action: action_recommend_music
-  - slot_was_set:
-    - genre: "rock"
-    - artist_name: "Radiohead"
-  - intent: positive_change_song
-  - action: utter_acknowledge_style
-  - intent: stick_to_artist
-  - action: utter_keep_the_band
+    - intent: create_playlist
+      entities:
+        - playlist_link: "https://open.spotify.com/playlist/2y4p9S7W4tXJAzu35relGA"
+        - note_name: "C#"
+        - tempo: 142
+        - time_signature: 4
+    - action: action_create_spotify_playlist
 
-- story: 2nd happy path
-  steps:
-  - intent: greet
-  - action: utter_greet_back_question
-  - intent: music_specification_artist
-  - action: utter_playing_artist
-  - intent: positive_change_song
-  - action: utter_acknowledge_style
-  - intent: positive_feedback
 
-- story: 3rd sad path
-  steps:
-  - intent: greet
-  - action: utter_greet_back_question
-  - intent: music_specification_genre
-  - action: action_recommend_music
-  - slot_was_set:
-    - genre: "rock"
-    - artist_name: "Radiohead"
-  - intent: positive_change_song
-  - action: utter_acknowledge_style
-  - intent: stick_to_artist
-  - action: utter_keep_the_band
-  - intent: unwanted_music
-  - action: utter_ask_for_different_artist
+#- story: 1st happy path
+#  steps:
+#  - intent: greet
+#  - action: utter_greet_back_question
+#  - intent: music_specification_genre
+#  - action: action_recommend_music
+#  - slot_was_set:
+#    - genre: "rock"
+#    - artist_name: "Radiohead"
+#  - intent: positive_change_song
+#  - action: utter_acknowledge_style
+#  - intent: stick_to_artist
+#  - action: utter_keep_the_band
+#
+#- story: 2nd happy path
+#  steps:
+#  - intent: greet
+#  - action: utter_greet_back_question
+#  - intent: music_specification_artist
+#  - action: utter_playing_artist
+#  - intent: positive_change_song
+#  - action: utter_acknowledge_style
+#  - intent: positive_feedback
+
+#- story: 3rd sad path
+#  steps:
+#  - intent: greet
+#  - action: utter_greet_back_question
+#  - intent: music_specification_genre
+#  - action: action_recommend_music
+#  - slot_was_set:
+#    - genre: "rock"
+#    - artist_name: "Radiohead"
+#  - intent: positive_change_song
+#  - action: utter_acknowledge_style
+#  - intent: stick_to_artist
+#  - action: utter_keep_the_band
+#  - intent: unwanted_music
+#  - action: utter_ask_for_different_artist
+#- story: interactive_story_1
+#  steps:
+#  - intent: create_playlist
+#    entities:
+#    - note_name: C
+#    - tempo: '140'
+#    - time_signature: '4'
+#  - slot_was_set:
+#    - note_name: C
+#  - slot_was_set:
+#    - tempo: '140'
+#  - slot_was_set:
+#    - time_signature: '4'
+
+
+#- story: interactive_story_1
+#  steps:
+#  - intent: create_playlist
+#    entities:
+#    - playlist_link: https://open.spotify.com/playlist/5qTtoLQjDUzewb5A9U48Zs?si=mHfxld8yQBm4bgBIAFFS4g
+#    - note_name: C
+#    - time_signature: '144'
+#    - time_signature: '4'
+#  - slot_was_set:
+#    - playlist_link: https://open.spotify.com/playlist/5qTtoLQjDUzewb5A9U48Zs?si=mHfxld8yQBm4bgBIAFFS4g
+#  - slot_was_set:
+#    - note_name: C
+#  - slot_was_set:
+#    - time_signature: '4'
+#  - slot_was_set:
+#    - user_response: give me a playlist using https://open.spotify.com/playlist/5qTtoLQjDUzewb5A9U48Zs?si=mHfxld8yQBm4bgBIAFFS4g with note C, tempo 144 bpm and time signature 4
+#  - action: action_create_spotify_playlist

@@ -1,0 +1,30 @@
+{
+  "lookup": {
+    "rules": {
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"goodbye\"}}]": "utter_goodbye",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"goodbye\"}}, {\"prev_action\": {\"action_name\": \"utter_goodbye\"}, \"user\": {\"intent\": \"goodbye\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"music_specification_genre\"}}]": "action_recommend_music",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"music_specification_genre\"}}, {\"prev_action\": {\"action_name\": \"action_recommend_music\"}, \"user\": {\"intent\": \"music_specification_genre\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"bot_challenge\"}}]": "utter_iamabot",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"bot_challenge\"}}, {\"prev_action\": {\"action_name\": \"utter_iamabot\"}, \"user\": {\"intent\": \"bot_challenge\"}}]": "action_listen"
+    },
+    "rule_only_slots": [],
+    "rule_only_loops": [],
+    "rules_for_loop_unhappy_path": {
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}}, {\"active_loop\": {\"name\": \"playlist_confirmation_form\"}, \"prev_action\": {\"action_name\": \"action_create_spotify_playlist\"}, \"slots\": {\"note_name\": [1.0], \"playlist_link\": [1.0], \"tempo\": [1.0, 1.0], \"time_signature\": [1.0, 1.0]}, \"user\": {\"entities\": [\"note_name\", \"playlist_link\", \"tempo\", \"time_signature\"], \"intent\": \"create_playlist\"}}]": "do_not_predict_loop_action",
+      "[{\"prev_action\": {\"action_name\": \"action_create_spotify_playlist\"}}, {\"active_loop\": {\"name\": \"playlist_confirmation_form\"}, \"prev_action\": {\"action_name\": \"action_create_spotify_playlist\"}, \"slots\": {\"note_name\": [1.0], \"playlist_link\": [1.0], \"tempo\": [1.0, 1.0], \"time_signature\": [1.0, 1.0]}, \"user\": {\"entities\": [\"note_name\", \"playlist_link\", \"tempo\", \"time_signature\"], \"intent\": \"create_playlist\"}}]": "do_not_predict_loop_action",
+      "[{\"prev_action\": {\"action_name\": \"action_create_spotify_playlist\"}}, {\"active_loop\": {\"name\": \"playlist_confirmation_form\"}, \"prev_action\": {\"action_name\": \"utter_ok_have_fun_listening\"}, \"slots\": {\"note_name\": [1.0], \"playlist_link\": [1.0], \"tempo\": [1.0, 1.0], \"time_signature\": [1.0, 1.0]}, \"user\": {\"entities\": [\"note_name\", \"playlist_link\", \"tempo\", \"time_signature\"], \"intent\": \"create_playlist\"}}]": "do_not_predict_loop_action"
+    },
+    "rules_not_in_stories": [
+      "handling active loops and forms - playlist_confirmation_form",
+      "handling active loops and forms - playlist_confirmation_form - action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"bot_challenge\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"goodbye\"}}, {\"prev_action\": {\"action_name\": \"utter_goodbye\"}, \"user\": {\"intent\": \"goodbye\"}}]",
+      "predicting default action with intent restart",
+      "predicting default action with intent back",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"bot_challenge\"}}, {\"prev_action\": {\"action_name\": \"utter_iamabot\"}, \"user\": {\"intent\": \"bot_challenge\"}}]",
+      "predicting default action with intent session_start",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"goodbye\"}}]"
+    ]
+  }
+}
